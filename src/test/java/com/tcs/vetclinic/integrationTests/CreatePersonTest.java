@@ -1,12 +1,15 @@
-package com.tcs.vetclinic;
+package com.tcs.vetclinic.integrationTests;
 
 import static io.qameta.allure.Allure.step;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
+import com.tcs.vetclinic.BaseIntegrationTest;
 import com.tcs.vetclinic.domain.person.Person;
+import feign.FeignException;
 import io.qameta.allure.AllureId;
-import io.qameta.allure.Allure;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpEntity;
@@ -15,16 +18,20 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
 import java.util.Collections;
 
-public class ITTestsExamples {
+@Epic("publicApi")
+@Feature("person controller")
+@Story("POST /person")
+public class CreatePersonTest extends BaseIntegrationTest {
 
     RestTemplate restTemplate = new RestTemplate();
 
     @Test
     @DisplayName("Сохранение пользователя с пустыми id и не пустым name")
     @AllureId("1")
-    public void test1() {
+    public void createPersonWithNameTest() {
         String postUrl = "http://localhost:8080/api/person";
 
         Person person = new Person("Ivan");
@@ -58,12 +65,13 @@ public class ITTestsExamples {
     }
 
     @Test
-    @DisplayName("Второй интеграционный тест")
+    @DisplayName("Ошибка при сохранении пользователя с пустым name")
     @AllureId("2")
-    public void test2() {
-        step("Шаг 3", () -> {});
-        step("Шаг 4", () -> {});
-        step("Проверка 2", () -> {});
+    public void createPersonWithoutNameTest() {
+        step("Вызываю POST /person с пустым name",
+                () -> step("Проверяю, что в ответ пришла 400 Bad Request",
+                        () -> assertThrows(FeignException.BadRequest.class, () -> testPersonClient.create(new Person())))
+        );
     }
 
 
