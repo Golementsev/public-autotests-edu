@@ -1,0 +1,106 @@
+//------------------GET /person------------------------
+
+### return all persons and 200 for nothing and 500 http error
+// По этому эндпоинту я не смогу искусственно создать 500 ошибку, т.к. он возвращает всегда 200, даже если ничего нету.
+// Единственный вараинт -- вручную сломать findAll() в PersonController
+GET http://localhost:8080/api/person
+Accept: application/json
+
+//------------------GET /person/{id}------------------------
+
+### return person by id and 200
+GET http://localhost:8080/api/person/1
+Accept: application/json
+
+### return 404 http error
+GET http://localhost:8080/api/person/26137812367
+Accept: application/json
+
+### not valid negative id
+GET http://localhost:8080/api/person/-10
+Accept: application/json
+
+### not valid null
+// Могу передать null только так :peka:
+GET http://localhost:8080/api/person/null
+Accept: application/json
+
+//------------------POST /person------------------------
+
+### create person and return created id and 201
+POST http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Aboba"
+}
+
+### return 500 http error
+POST http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "ФДЩЫВАЩЫВА"
+}
+
+### not valid negative id
+POST http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "id": -1,
+  "name": "Aboba"
+}
+
+### not valid null name
+POST http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": ""
+}
+
+### not valid name less then 3 symbols
+POST http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "ac"
+}
+###
+
+// ------------------ DELETE /person/{id}------------------------
+
+### delete person and return 200
+DELETE http://localhost:8080/api/person/1
+
+### return 409 http error
+DELETE http://localhost:8080/api/person/13275641235713257
+
+### not valid negative id
+DELETE http://localhost:8080/api/person/-1
+
+### not valid null id
+// Могу передать null только так :peka:
+DELETE http://localhost:8080/api/person/null
+
+//------------------ PUT /person/{id}------------------------
+
+### update person and return nothing and 204 for nothing and 404 http error if no such id
+PUT http://localhost:8080/api/person/2
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "sosemba"
+}
+###
+
+//------------------graceful shutdown------------------------
+
+### graceful shutdown
+POST http://localhost:8080/api/actuator/shutdown

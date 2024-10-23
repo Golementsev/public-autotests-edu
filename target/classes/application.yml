@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  servlet.context-path: /api
+
+springdoc.api-docs.enabled: false
+
+spring:
+  liquibase.contexts: base
+  liquibase.change-log: 'classpath:/db.changelog/db.changelog-master.sql'

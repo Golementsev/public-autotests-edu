@@ -1,0 +1,9 @@
+com\tcs\vetclinic\UnitTests\GetListOfPeopleTests.class
+com\tcs\vetclinic\UnitTests\PutChangePersonByIDTests.class
+com\tcs\vetclinic\BaseIntegrationTest.class
+com\tcs\vetclinic\UnitTests\DeletePersonByIDTests.class
+com\tcs\vetclinic\client\TestPersonClient.class
+com\tcs\vetclinic\UnitTests\GetListOfPeopleTests$1.class
+com\tcs\vetclinic\TestApplicationConfig.class
+com\tcs\vetclinic\UnitTests\PostPersonTests.class
+com\tcs\vetclinic\UnitTests\GetPersonByIDTests.class

@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  servlet.context-path: /api
+  error:
+    include-exception: true
+    include-message: always
+    include-stacktrace: always
+
+logging.level:
+  org.springframework: INFO
+  org.springframework.jdbc.core: TRACE
+
+management:
+  endpoints:
+    web.exposure.include: '*'
+    jmx.exposure.include: '*'
+  endpoint:
+    shutdown.enabled: true
+    health:
+      show-components: always
+      show-details: always
+    env.show-values: always
+
+springdoc.api-docs.enabled: true
+
+spring:
+  liquibase.contexts: base,qa
+  h2.console.enabled: true # http://localhost:8080/h2-console
+  datasource:
+    url: jdbc:h2:./vetclinic
+    hikari:
+      pool-name: vetclinic-db-cp
+  sql:
+    init:
+      mode: embedded
+

@@ -1,0 +1,11 @@
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\api\PersonClient.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\api\PersonController.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\config\ApplicationConfig.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\config\ApplicationErrorHandler.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\dao\PersonRepository.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\domain\person\Person.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\domain\sort\SortType.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\service\PersonNotExistError.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\service\PersonNotFoundError.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\service\PersonService.java
+C:\Users\IgorekNafig\IdeaProjects\public-autotests-edu\src\main\java\com\tcs\vetclinic\VetclinicApplication.java
