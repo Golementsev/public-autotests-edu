@@ -15,6 +15,14 @@ class ApiClient:
         url = f"{self.base_address}{path}"
         return requests.get(url=url, params=params, headers=headers)
 
+    def put(self, path="/", params=None, data=None, json=None, headers=None):
+        url = f"{self.base_address}{path}"
+        return requests.put(url=url, params=params, data=data, json=json, headers=headers)
+
+    def delete(self, path="/", params=None, data=None, json=None, headers=None):
+        url = f"{self.base_address}{path}"
+        return requests.delete(url=url, params=params, data=data, json=json, headers=headers)
+
 @pytest.fixture
 def vet_api():
     return ApiClient(base_address="http://localhost:8081/api/")
